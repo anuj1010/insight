@@ -1,0 +1,84 @@
+.createPost {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure the form fills the entire viewport */
+  align-items: center; /* Center horizontally */
+  padding: 20px; /* Add padding */
+  box-sizing: border-box; /* Include padding in width calculation */
+  margin-top: 20px;
+}
+.postTitle {
+  font-size: 35px;
+  font-weight: 600px;
+}
+
+.postForm {
+  width: 100%; /* Take full width of the parent container */
+  max-width: 800px; /* Limit the width */
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+}
+
+.postForm input,
+.postForm textarea {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: calc(100% - 20px); /* Subtract padding */
+}
+
+.postForm textarea {
+  height: 200px; /* Adjust height as needed */
+}
+
+.postForm button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 auto;
+  margin-top: 15px;
+  width: calc(100% - 20px); /* Subtract padding */
+}
+
+.postForm button:hover {
+  background-color: #0056b3;
+}
+
+@media screen and (max-width: 1024px) {
+  .createPost {
+    padding: 10px; /* Reduce padding */
+  }
+  .postTitle {
+    font-size: 32px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .createPost {
+    padding: 5px; /* Further reduce padding */
+  }
+  .postForm {
+    max-width: 500px; /* Adjust max-width */
+  }
+  .postTitle {
+    font-size: 28px;
+  }
+}
+
+/* Responsive styles for max-width: 500px */
+@media screen and (max-width: 500px) {
+  .createPost {
+    padding: 2px; /* Minimum padding */
+  }
+  .postForm {
+    max-width: 300px; /* Adjust max-width */
+  }
+  .postTitle {
+    font-size: 22px;
+  }
+}

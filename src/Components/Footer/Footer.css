@@ -1,0 +1,26 @@
+.footer {
+  background-color: #333;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footerItems {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footerItems p {
+  margin: 0 10px;
+}
+
+@media (max-width: 500px) {
+  .footer {
+    padding: 10px 0px;
+  }
+  .footerItems p {
+    font-size: 14px;
+    margin: 5px;
+  }
+}

@@ -1,0 +1,62 @@
+.heroCard {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  overflow: hidden;
+  width: 95%;
+}
+
+.heroLeft img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.heroRight {
+  padding: 20px;
+}
+
+.heroRight h1 {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.heroRight h3 {
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.authDetails time {
+  display: block;
+  font-size: 0.8rem;
+}
+
+@media only screen and (min-width: 768px) {
+  .heroCard {
+    flex-direction: row;
+    height: 250px; /* Adjust height as needed */
+    gap: 25px;
+  }
+  .heroRight h1 {
+    font-size: 1.5rem;
+  }
+
+  .heroLeft {
+    flex: 0.5;
+    max-width: 40%;
+    overflow: hidden;
+  }
+
+  .heroRight {
+    flex: 0.5;
+    padding: 20px;
+  }
+
+  .heroLeft img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}

@@ -1,0 +1,148 @@
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: #f9f9f9;
+}
+
+.post-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.editLink {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+}
+
+.post-image {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.post-content {
+  margin-top: 20px;
+}
+
+.post-title {
+  font-size: 32px;
+  font-weight: bold;
+  color: #070707;
+  margin-bottom: 10px;
+}
+
+.post-summary {
+  font-size: 18px;
+  color: #252525;
+  margin-bottom: 10px;
+}
+
+.post-detail {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #2b2b2b;
+  margin-bottom: 20px;
+}
+
+.author-details {
+  font-size: 14px;
+  color: #000000;
+  margin-top: 20px;
+}
+.author-details p {
+  color: #0e0e0e;
+}
+
+.edit-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  width: 180px;
+  margin: 20px auto;
+  padding: 10px 5px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+}
+.edit-button img {
+  height: 25px;
+  width: 25px;
+}
+
+.edit-button:hover {
+  background-color: #0056b3;
+}
+
+@media only screen and (max-width: 768px) {
+  .post-title {
+    font-size: 28px;
+  }
+
+  .post-summary {
+    font-size: 16px;
+  }
+
+  .post-detail {
+    font-size: 14px;
+  }
+
+  .author-details {
+    font-size: 12px;
+  }
+
+  .edit-button {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .post-title {
+    font-size: 20px;
+  }
+
+  .post-summary {
+    font-size: 14px;
+  }
+
+  .post-detail {
+    font-size: 12px;
+  }
+
+  .author-details {
+    font-size: 10px;
+  }
+
+  .edit-button {
+    width: 100px;
+    font-size: 12px;
+    gap: 5px;
+    text-align: center;
+  }
+  .edit-button img {
+    height: 15px;
+    width: 15px;
+  }
+}

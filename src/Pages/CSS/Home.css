@@ -1,0 +1,20 @@
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .homeContainer {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .homeContainer {
+    max-width: 1200px; /* Adjust as needed */
+    margin: 0 auto;
+  }
+}
