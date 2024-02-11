@@ -4,6 +4,7 @@ import { Link, Navigate } from "react-router-dom";
 import { UserContext } from "../../Context/UserContext";
 import "./NavBar.css";
 import logo from "../assets/logo.png";
+import baseUrl from "../url";
 
 function NavBar() {
   const [active, setActive] = useState("home");
@@ -14,7 +15,8 @@ function NavBar() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/blog/profile",
+          // "http://localhost:5000/api/blog/profile",
+          "${baseUrl}profile",
           { withCredentials: true }
         );
         // setUserData(response.data);
@@ -42,7 +44,8 @@ function NavBar() {
   const handleLogout = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:5000/api/blog/logout",
+        // "http://localhost:5000/api/blog/logout",
+        `${baseUrl}logout`,
         {
           withCredentials: true,
         }

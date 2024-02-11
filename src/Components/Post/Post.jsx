@@ -5,6 +5,7 @@ import { UserContext } from "../../Context/UserContext";
 import PostContent from "../PostContent/PostContent";
 import "./Post.css";
 import edit from "../assets/edit.png";
+import baseUrl from "../url";
 
 const Post = () => {
   const { id } = useParams();
@@ -15,7 +16,8 @@ const Post = () => {
     const fetchPost = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/blog/post/${id}`
+          // `http://localhost:5000/api/blog/post/${id}`
+          `${baseUrl}post/${id}`
         );
 
         const arrayBufferToBase64 = (buffer) => {

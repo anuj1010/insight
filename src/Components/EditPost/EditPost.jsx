@@ -4,6 +4,7 @@ import "./EditPost.css";
 import ReactQuill from "react-quill";
 import axios from "axios";
 import { UserContext } from "../../Context/UserContext";
+import baseUrl from "../url";
 
 const modules = {
   toolbar: [
@@ -48,7 +49,8 @@ const EditPost = () => {
   useEffect(() => {
     const fetchPost = async () => {
       const response = await axios.get(
-        `http://localhost:5000/api/blog/post/${id}`
+        // `http://localhost:5000/api/blog/post/${id}`
+        `${baseUrl}/post/${id}`
       );
       // console.log(response);
       setTitle(response.data.title);
@@ -75,7 +77,8 @@ const EditPost = () => {
       data.append("cover", file);
     }
     const updatePost = await axios.put(
-      `http://localhost:5000/api/blog/post/${id}`,
+      // `http://localhost:5000/api/blog/post/${id}`,
+      `${baseUrl}/post/${id}`,
       data,
       {
         withCredentials: true,

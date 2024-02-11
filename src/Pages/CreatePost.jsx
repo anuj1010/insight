@@ -5,6 +5,7 @@ import "react-quill/dist/quill.snow.css";
 import { Navigate } from "react-router-dom";
 import { UserContext } from "../Context/UserContext";
 import "./CSS/CreatePost.css";
+import baseUrl from "../Components/url";
 
 const modules = {
   toolbar: [
@@ -61,7 +62,8 @@ const CreatePost = () => {
 
     try {
       const postResponse = await axios.post(
-        "http://localhost:5000/api/blog/post",
+        // "http://localhost:5000/api/blog/post",
+        `${baseUrl}/post`,
         data,
         {
           withCredentials: true,

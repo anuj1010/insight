@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./CSS/SignUp.css";
+import baseUrl from "../Components/url";
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
@@ -21,7 +22,8 @@ const SignUp = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/blog/register",
+        // "http://localhost:5000/api/blog/register",
+        `${baseUrl}/register`,
         formData
       );
       console.log("response", response);

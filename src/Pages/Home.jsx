@@ -2,13 +2,17 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import PostHero from "../Components/PostHero/PostHero";
 import "./CSS/Home.css";
+import baseUrl from "../Components/url";
 
 function Home() {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
     const getPosts = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/blog/post");
+        const response = await axios.get(
+          // "http://localhost:5000/api/blog/post"
+          `${baseUrl}/post`
+        );
 
         const postsWithDataUri = response.data.map((post) => {
           const arrayBufferToBase64 = (buffer) => {

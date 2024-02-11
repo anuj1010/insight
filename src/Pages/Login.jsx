@@ -3,6 +3,7 @@ import axios from "axios";
 import "./CSS/Login.css";
 import { Navigate } from "react-router-dom";
 import { UserContext } from "../Context/UserContext";
+import baseUrl from "../Components/url";
 
 const Login = () => {
   const { setUserData, setLoggedOut } = useContext(UserContext);
@@ -20,12 +21,15 @@ const Login = () => {
     }));
   };
 
+  // console.log(`${baseUrl}login`);
+  // console.log("demo");
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.post(
         // "http://localhost:5000/api/blog/login",
-        "https://long-plum-marlin-hat.cyclic.app/api/blog/login",
+        `${baseUrl}login`,
         formData,
         { withCredentials: true }
       );
