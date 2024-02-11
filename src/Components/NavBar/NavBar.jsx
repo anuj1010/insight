@@ -16,7 +16,7 @@ function NavBar() {
       try {
         const response = await axios.get(
           // "http://localhost:5000/api/blog/profile",
-          "${baseUrl}profile",
+          `${baseUrl}profile`,
           { withCredentials: true }
         );
         // setUserData(response.data);
