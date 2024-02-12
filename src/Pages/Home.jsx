@@ -11,7 +11,8 @@ function Home() {
       try {
         const response = await axios.get(
           // "http://localhost:5000/api/blog/post"
-          `${baseUrl}post`
+          `${baseUrl}post`,
+          { withCredentials: true }
         );
 
         const postsWithDataUri = response.data.map((post) => {
