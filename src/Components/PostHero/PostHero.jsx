@@ -27,8 +27,8 @@ const PostHero = ({
           style={{ textDecoration: "none", color: "black" }}
         >
           <h1>{title}</h1>
+          <h3>{summary}</h3>
         </Link>
-        <h3>{summary}</h3>
         {/* <div className="heroText">
           <PostContent content={content} />
         </div> */}

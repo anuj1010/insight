@@ -1,16 +1,18 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, Navigate, useParams } from "react-router-dom";
 import { UserContext } from "../../Context/UserContext";
 import PostContent from "../PostContent/PostContent";
 import "./Post.css";
 import edit from "../assets/edit.png";
+import deleteIcon from "../assets/delete.png";
 import baseUrl from "../url";
 
 const Post = () => {
   const { id } = useParams();
   const [postWithId, setPostWithId] = useState();
   const { userData } = useContext(UserContext);
+  const [isDeleted, setIsDeleted] = useState(false);
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -49,18 +51,38 @@ const Post = () => {
   }, []);
   // postWithId ? console.log("author", postWithId) : "";
   // userData ? console.log("userData", userData.id) : "";
+  const handleDelete = async () => {
+    const response = await axios.delete(`${baseUrl}post/${id}`, {
+      withCredentials: true,
+    });
+    if (response.status == 200) {
+      alert(response.data.message);
+      setIsDeleted(true);
+    }
+    // console.log(response);
+  };
+
+  if (isDeleted) {
+    return <Navigate to={"/"} />;
+  }
 
   return (
     <>
       {postWithId && (
         <div className="post-container">
           {userData && userData.id == postWithId.author._id && (
-            <Link to={`/edit-post/${postWithId._id}`} className="editLink">
-              <div className="edit-button">
-                <img src={edit} alt="" />
-                Edit Post
-              </div>
-            </Link>
+            <div className="buttonContainer">
+              <Link to={`/edit-post/${postWithId._id}`} className="editLink">
+                <div className="edit-button">
+                  <img src={edit} alt="" />
+                  Edit Post
+                </div>
+              </Link>
+              <button onClick={handleDelete}>
+                <img src={deleteIcon} alt="" className="deleteIcon" />
+                Delete
+              </button>
+            </div>
           )}
           <img className="post-image" src={postWithId.cover.dataUrl} alt="" />
           <div className="author-details">

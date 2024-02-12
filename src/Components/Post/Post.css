@@ -69,13 +69,42 @@ body {
 .author-details p {
   color: #0e0e0e;
 }
+.buttonContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  padding: 0px 35px;
+}
+.buttonContainer button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  padding: 10px 10px;
+  border: none;
+  border-radius: 5px;
+  width: 140px;
+  background: red;
+  color: white;
+  font-size: 16px;
+  font-weight: 400;
+  cursor: pointer;
+}
+.deleteIcon {
+  width: 25px;
+  height: 25px;
+}
+.buttonContainer button:hover {
+  background: rgb(194, 0, 0);
+}
 
 .edit-button {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 15px;
-  width: 180px;
+  width: 170px;
   margin: 20px auto;
   padding: 10px 5px;
   background-color: #007bff;
@@ -83,7 +112,7 @@ body {
   border: none;
   border-radius: 5px;
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 400;
   text-align: center;
   cursor: pointer;
 }
@@ -142,6 +171,16 @@ body {
     text-align: center;
   }
   .edit-button img {
+    height: 15px;
+    width: 15px;
+  }
+  .buttonContainer button {
+    width: 100px;
+    font-size: 12px;
+    gap: 5px;
+    text-align: center;
+  }
+  .deleteIcon {
     height: 15px;
     width: 15px;
   }

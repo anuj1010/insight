@@ -43,6 +43,7 @@ const CreatePost = () => {
   const [summary, setSummary] = useState("");
   const [content, setContent] = useState("");
   const [file, setFile] = useState(null);
+  const [redirect, setRedirect] = useState(false);
 
   const handleFileChange = (e) => {
     // Get the selected file from the input tag
@@ -74,6 +75,7 @@ const CreatePost = () => {
       );
       if (postResponse.status === 200) {
         alert("Post Created Successfully");
+        setRedirect(true);
       }
       setTitle("");
       setSummary("");
@@ -84,7 +86,7 @@ const CreatePost = () => {
       // console.log("formdata", data);
     } catch (error) {
       console.error("Error creating post:", error);
-      alert("something went wrong");
+      alert("something went wrong relogin");
     }
   };
 
@@ -98,6 +100,9 @@ const CreatePost = () => {
 
   if (loggedOut) {
     return <Navigate to="/" />;
+  }
+  if (redirect) {
+    return <Navigate to={"/"} />;
   }
 
   return (
