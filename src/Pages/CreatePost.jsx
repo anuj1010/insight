@@ -43,12 +43,31 @@ const CreatePost = () => {
   const [summary, setSummary] = useState("");
   const [content, setContent] = useState("");
   const [file, setFile] = useState(null);
+  const [errorMessage, setErrorMessage] = useState("");
   const [redirect, setRedirect] = useState(false);
 
   const handleFileChange = (e) => {
     // Get the selected file from the input tag
     const selectedFile = e.target.files[0];
-    setFile(selectedFile); // Store the file object in state
+
+    if (selectedFile) {
+      const maxSize = 300 * 1024; // 500 KB limit
+      // Check if the file size exceeds the limit
+      if (selectedFile.size > maxSize) {
+        // Display error message to the user
+        setErrorMessage(
+          "File size exceeds the limit! Please choose a file smaller than 300KB."
+        );
+        // Clear the selected file
+        setFile(null);
+        e.target.value = null;
+      } else {
+        // Clear any previous error message
+        setErrorMessage("");
+        // Store the file object in state
+        setFile(selectedFile);
+      }
+    }
   };
 
   const handleCreatePost = async (ev) => {
@@ -90,14 +109,6 @@ const CreatePost = () => {
     }
   };
 
-  // if (!loggedin || !userData) {
-  //   return (
-  //     <div className="createPost">
-  //       <h3 className="loggedOut">Oops! Please Login To Create Post</h3>
-  //     </div>
-  //   );
-  // }
-
   if (loggedOut) {
     return <Navigate to="/" />;
   }
@@ -108,26 +119,60 @@ const CreatePost = () => {
   return (
     <div className="createPost">
       <h1 className="postTitle">Hello {userData.username}..... let's write!</h1>
+
       <form className="postForm" onSubmit={handleCreatePost}>
-        <input
-          type="text"
-          placeholder="Title"
-          value={title}
-          onChange={(ev) => setTitle(ev.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Summary"
-          value={summary}
-          onChange={(ev) => setSummary(ev.target.value)}
-        />
-        <input type="file" name="cover" onChange={handleFileChange} />
-        <div>
+        <div className="form-group">
+          <label htmlFor="title">
+            Title<span className="required-field"></span>
+          </label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            placeholder="Title"
+            value={title}
+            onChange={(ev) => setTitle(ev.target.value)}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="summary">
+            Summary<span className="required-field"></span>
+          </label>
+          <input
+            type="text"
+            id="summary"
+            name="summary"
+            placeholder="Summary"
+            value={summary}
+            onChange={(ev) => setSummary(ev.target.value)}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="cover">
+            Cover Image<span className="required-field"></span>
+          </label>
+          <input
+            type="file"
+            id="cover"
+            name="cover"
+            onChange={handleFileChange}
+            required
+          />
+        </div>
+        {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
+        <div className="form-group">
+          <label htmlFor="content">
+            Content<span className="required-field"></span>
+          </label>
           <ReactQuill
+            id="content"
             modules={modules}
             formats={formats}
             value={content}
             onChange={(val) => setContent(val)}
+            required
           />
         </div>
         <button type="submit">Create Post</button>

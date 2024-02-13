@@ -4,7 +4,7 @@ export const UserContext = createContext(null);
 
 const UserProvider = (props) => {
   const [userData, setUserData] = useState({});
-  const [loggedOut, setLoggedOut] = useState(false);
+  const [loggedOut, setLoggedOut] = useState(true);
 
   return (
     <UserContext.Provider

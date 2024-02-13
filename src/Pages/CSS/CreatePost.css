@@ -28,6 +28,11 @@
   border-radius: 5px;
   width: calc(100% - 20px); /* Subtract padding */
 }
+.required-field::after {
+  content: "*";
+  color: red;
+  margin-left: 4px;
+}
 
 .postForm textarea {
   height: 200px; /* Adjust height as needed */
