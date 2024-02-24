@@ -83,7 +83,7 @@ const CreatePost = () => {
     try {
       const postResponse = await axios.post(
         // "http://localhost:5000/api/blog/post",
-        `${baseUrl}/post`,
+        `${baseUrl}post`,
         data,
         {
           withCredentials: true,

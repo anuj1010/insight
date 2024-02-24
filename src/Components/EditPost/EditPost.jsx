@@ -51,7 +51,7 @@ const EditPost = () => {
     const fetchPost = async () => {
       const response = await axios.get(
         // `http://localhost:5000/api/blog/post/${id}`
-        `${baseUrl}/post/${id}`
+        `${baseUrl}post/${id}`
       );
       // console.log(response);
       setTitle(response.data.title);
@@ -97,7 +97,7 @@ const EditPost = () => {
     }
     const updatePost = await axios.put(
       // `http://localhost:5000/api/blog/post/${id}`,
-      `${baseUrl}/post/${id}`,
+      `${baseUrl}post/${id}`,
       data,
       {
         withCredentials: true,
@@ -122,32 +122,6 @@ const EditPost = () => {
 
   return (
     <div className="createPost">
-      {/* <form className="postForm" onSubmit={handleUpdatePost}>
-        <input
-          type="text"
-          placeholder="Title"
-          value={title}
-          onChange={(ev) => setTitle(ev.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Summary"
-          value={summary}
-          onChange={(ev) => setSummary(ev.target.value)}
-        />
-        <input type="file" name="cover" onChange={handleFileChange} />
-        {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
-        <div>
-          <ReactQuill
-            modules={modules}
-            formats={formats}
-            value={content}
-            onChange={(val) => setContent(val)}
-          />
-        </div>
-        <button type="submit">Update Post</button>
-      </form> */}
-
       <form className="postForm" onSubmit={handleUpdatePost}>
         <div className="form-group">
           <label htmlFor="title">
