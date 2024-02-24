@@ -15,30 +15,32 @@ function Home() {
           { withCredentials: true }
         );
 
-        const postsWithDataUri = response.data.map((post) => {
-          const arrayBufferToBase64 = (buffer) => {
-            let binary = "";
-            const bytes = new Uint8Array(buffer);
-            for (let i = 0; i < bytes.byteLength; i++) {
-              binary += String.fromCharCode(bytes[i]);
-            }
-            return window.btoa(binary);
-          };
+        // console.log(response);
 
-          const base64String = arrayBufferToBase64(post.cover.data.data);
-          const dataUrl = `data:${post.cover.contentType};base64,${base64String}`;
-          return {
-            ...post,
-            cover: {
-              ...post.cover,
-              dataUrl: dataUrl,
-            },
-          };
-        });
+        // const postsWithDataUri = response.data.map((post) => {
+        //   const arrayBufferToBase64 = (buffer) => {
+        //     let binary = "";
+        //     const bytes = new Uint8Array(buffer);
+        //     for (let i = 0; i < bytes.byteLength; i++) {
+        //       binary += String.fromCharCode(bytes[i]);
+        //     }
+        //     return window.btoa(binary);
+        //   };
+
+        //   const base64String = arrayBufferToBase64(post.cover.data.data);
+        //   const dataUrl = `data:${post.cover.contentType};base64,${base64String}`;
+        //   return {
+        //     ...post,
+        //     cover: {
+        //       ...post.cover,
+        //       dataUrl: dataUrl,
+        //     },
+        //   };
+        // });
         // console.log(postsWithDataUri);
         // console.log(response.data);
 
-        setPosts(postsWithDataUri);
+        setPosts(response.data);
         // if (postsWithDataUri.length > 0) {
         //   setImageSrc(postsWithDataUri[0].cover.dataUrl);
         // }

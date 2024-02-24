@@ -105,7 +105,7 @@ const CreatePost = () => {
       // console.log("formdata", data);
     } catch (error) {
       console.error("Error creating post:", error);
-      alert("something went wrong relogin");
+      alert("something went wrong Re-Login");
     }
   };
 

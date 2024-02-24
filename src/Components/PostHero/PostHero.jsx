@@ -1,6 +1,4 @@
 import React from "react";
-import postImage from "../assets/post.jpg";
-import PostContent from "../PostContent/PostContent";
 import { formatISO9075 } from "date-fns";
 import "./PostHero.css";
 import { Link } from "react-router-dom";
@@ -8,7 +6,7 @@ import { Link } from "react-router-dom";
 const PostHero = ({
   title,
   summary,
-  content,
+
   cover,
   author,
   createdAt,
@@ -18,7 +16,7 @@ const PostHero = ({
     <div className="heroCard">
       <div className="heroLeft">
         <Link to={`/post/${_id}`}>
-          <img src={cover.dataUrl} alt="demo" />
+          <img src={cover} alt="demo" />
         </Link>
       </div>
       <div className="heroRight">

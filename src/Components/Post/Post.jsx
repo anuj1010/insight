@@ -22,27 +22,27 @@ const Post = () => {
           `${baseUrl}post/${id}`
         );
 
-        const arrayBufferToBase64 = (buffer) => {
-          let binary = "";
-          const bytes = new Uint8Array(buffer);
-          for (let i = 0; i < bytes.byteLength; i++) {
-            binary += String.fromCharCode(bytes[i]);
-          }
-          return window.btoa(binary);
-        };
+        setPostWithId(response.data);
+        // console.log(response);
+        // const arrayBufferToBase64 = (buffer) => {
+        //   let binary = "";
+        //   const bytes = new Uint8Array(buffer);
+        //   for (let i = 0; i < bytes.byteLength; i++) {
+        //     binary += String.fromCharCode(bytes[i]);
+        //   }
+        //   return window.btoa(binary);
+        // };
 
-        const base64String = arrayBufferToBase64(response.data.cover.data.data);
-        const dataUrl = `data:${response.data.cover.contentType};base64,${base64String}`;
+        // const base64String = arrayBufferToBase64(response.data.cover.data.data);
+        // const dataUrl = `data:${response.data.cover.contentType};base64,${base64String}`;
 
-        var newPost = {
-          ...response.data,
-          cover: {
-            ...response.data.cover,
-            dataUrl: dataUrl,
-          },
-        };
-
-        setPostWithId(newPost);
+        // var newPost = {
+        //   ...response.data,
+        //   cover: {
+        //     ...response.data.cover,
+        //     dataUrl: dataUrl,
+        //   },
+        // };
       } catch (error) {
         console.error("Error fetching post:", error);
       }
@@ -84,7 +84,7 @@ const Post = () => {
               </button>
             </div>
           )}
-          <img className="post-image" src={postWithId.cover.dataUrl} alt="" />
+          <img className="post-image" src={postWithId.cover} alt="" />
           <div className="author-details">
             <p>Author: {postWithId.author.username}</p>
             <p>
