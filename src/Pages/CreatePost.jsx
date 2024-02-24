@@ -82,8 +82,7 @@ const CreatePost = () => {
     // "http://localhost:5000/api/blog/post",
     try {
       console.log("post URL", baseUrl + "post");
-      const postResponse = await axios.post(`${baseUrl}post`, {
-        data,
+      const postResponse = await axios.post(`${baseUrl}post`, data, {
         withCredentials: true,
         headers: {
           "Content-Type": "multipart/form-data",
