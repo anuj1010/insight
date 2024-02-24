@@ -26,7 +26,7 @@ const SignUp = () => {
         `${baseUrl}register`,
         formData
       );
-      console.log("response", response);
+      // console.log("response", response);
       if (response.status === 200) {
         alert("User Registered Successfully");
       } else {

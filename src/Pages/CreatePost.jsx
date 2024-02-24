@@ -79,19 +79,16 @@ const CreatePost = () => {
     data.append("summary", summary);
     data.append("content", content);
     data.append("cover", file);
-
+    // "http://localhost:5000/api/blog/post",
     try {
-      const postResponse = await axios.post(
-        // "http://localhost:5000/api/blog/post",
-        `${baseUrl}post`,
+      console.log("post URL", baseUrl + post);
+      const postResponse = await axios.post(`${baseUrl}post`, {
         data,
-        {
-          withCredentials: true,
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+        withCredentials: true,
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
       if (postResponse.status === 200) {
         alert("Post Created Successfully");
         setRedirect(true);
