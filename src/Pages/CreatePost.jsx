@@ -81,7 +81,6 @@ const CreatePost = () => {
     data.append("cover", file);
     // "http://localhost:5000/api/blog/post",
     try {
-      console.log("post URL", baseUrl + "post");
       const postResponse = await axios.post(`${baseUrl}post`, data, {
         withCredentials: true,
         headers: {
